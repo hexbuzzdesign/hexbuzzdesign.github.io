@@ -34,12 +34,12 @@
       <div class="overlay-white"></div>
       <div class="coming-soon-text">
         <h1 class="text-center mb-4 display-3">Coming Soon !</h1>
-        <form class="form-inline mx-auto" id="contact_form" method="POST">
+        <!-- <form class="form-inline mx-auto" id="contact_form">
           <div class="form-group mx-3 mb-2">
-            <input type="email" class="form-control" id="email" placeholder="Enter Your Email">
+            <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email">
           </div>
           <button type="submit" class="btn btn-outline-dark mb-2" id="submit">Notify Me</button>
-        </form>
+        </form> -->
         <h5 class="text-center mb-4 display-5">Visit our <a href="https://www.facebook.com/hexbuzzdesign/">facebook page</a><h5>
       </div>
     </div>
@@ -63,22 +63,17 @@
             return false;
         }
 
-        function doGet(e) {
-          jQuery.ajax({
-             type: "POST",
-             url: "https://script.google.com/macros/s/AKfycbwajfaRLrzJG2TfbuaC_cWMHV4cgxSQOCNIxi9-xRYrfB2UOplN/exec",
-             data: $("#contact_form").serialize(), // serializes the form's elements.
-             dataType: "json",
-             success: function(data){
-                 console.log(data); // show response from the php script.
-             },
-             error: function(data){
-                 console.log(data); // show response from the php script.
-             }
-           });
-        }
-
-
+        jQuery.ajax({
+           type: "POST",
+           url: "https://script.google.com/macros/s/AKfycbwajfaRLrzJG2TfbuaC_cWMHV4cgxSQOCNIxi9-xRYrfB2UOplN/exec",
+           data: $("#contact_form").serialize(), // serializes the form's elements.
+           success: function(data){
+               console.log(data); // show response from the php script.
+           },
+           error: function(data){
+               console.log(data); // show response from the php script.
+           }
+         });
       });
 
     </script>
