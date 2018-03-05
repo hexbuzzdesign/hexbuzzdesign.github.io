@@ -34,6 +34,12 @@
       <div class="overlay-white"></div>
       <div class="coming-soon-text">
         <h1 class="text-center mb-4 display-3">Coming Soon !</h1>
+        <form class="form-inline mx-auto" id="contact_form" method="POST" action="https://formspree.io/hello@reecreate.com">
+          <div class="form-group mx-3 mb-2">
+            <input type="email" class="form-control" id="email" placeholder="Enter Your Email">
+          </div>
+          <button type="submit" class="btn btn-outline-dark mb-2" id="submit">Notify Me</button>
+        </form>
         <h5 class="text-center mb-4 display-5">Visit our <a href="https://www.facebook.com/hexbuzzdesign/">facebook page</a><h5>
       </div>
     </div>
@@ -41,9 +47,61 @@
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="js/jquery-3.2.1.slim.min.js" type="text/javascript"></script>
+    <script src="js/jquery-3.3.1.min.js" type="text/javascript"></script>
     <script src="js/popper.min.js" type="text/javascript"></script>
     <script src="js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="js/main.js" type="text/javascript"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+    <script type="text/javascript">
+      // $('form#contact_form').submit(function (e){
+      //   e.preventDefault();
+      //   jQuery.ajax({
+      //      type: "POST",
+      //      url: "http://formspree.io/hello@reecreate.com",
+      //      data: $("#contact_form").serialize(), // serializes the form's elements.
+      //      dataType: "json",
+      //      success: function(data){
+      //          console.log(data); // show response from the php script.
+      //      },
+      //      error: function(data){
+      //          console.log(data); // show response from the php script.
+      //      }
+      //    });
+      // });
+
+
+
+//       $('form#contact_form').validate({
+//   messages: { },
+//   submitHandler: function(form) {
+//     $.ajax({
+//       url: "https://formspree.io/hello@reecreate.com",
+//       method: "POST",
+//       data: $('#contact_form').serialize(),
+//       dataType: "json",
+//       success: function(data) {
+//           $("form#contact_form :input").prop("disabled", true);
+//           $('#thanks').show();
+//       }
+//     });
+//     return false;
+//   }
+// });
+
+
+
+$('#submit').click(function (e) {
+
+  if ($('#email').val().trim() == 0 || $('#email').val().match(/^[\w!#$%&\'*+\/=?^`{|}~.-]+@(?:[a-z\d][a-z\d-]*(?:\.[a-z\d][a-z\d-]*)?)+\.(?:[a-z][a-z\d-]+)$/i) == null) {
+      $("#email").addClass('red');
+      setTimeout(function () {
+          $("#email").removeClass('red');
+      }, 1000);
+      return false;
+  }
+
+  return true;
+});
+
+    </script>
   </body>
 </html>
