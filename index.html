@@ -51,6 +51,7 @@
     <script src="js/popper.min.js" type="text/javascript"></script>
     <script src="js/bootstrap.min.js" type="text/javascript"></script>
     <script type="text/javascript">
+
       $('form#contact_form').submit(function (e){
         e.preventDefault();
 
@@ -62,18 +63,22 @@
             return false;
         }
 
-        jQuery.ajax({
-           type: "POST",
-           url: "//formspree.io/hexbuzz@yahoo.com",
-           data: $("#contact_form").serialize(), // serializes the form's elements.
-           dataType: "json",
-           success: function(data){
-               console.log(data); // show response from the php script.
-           },
-           error: function(data){
-               console.log(data); // show response from the php script.
-           }
-         });
+        function doGet(e) {
+          jQuery.ajax({
+             type: "POST",
+             url: "https://script.google.com/macros/s/AKfycbwajfaRLrzJG2TfbuaC_cWMHV4cgxSQOCNIxi9-xRYrfB2UOplN/exec",
+             data: $("#contact_form").serialize(), // serializes the form's elements.
+             dataType: "json",
+             success: function(data){
+                 console.log(data); // show response from the php script.
+             },
+             error: function(data){
+                 console.log(data); // show response from the php script.
+             }
+           });
+        }
+
+
       });
 
     </script>
