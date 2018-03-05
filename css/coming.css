@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+
+html, body{
+  height: 100%;
+}
+
+.coming-soon-wrapper{
+  font-family: 'Pacifico', cursive;
+  width: 100%;
+  height: 100%;
+  background-image: url('../image/coming.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+}
+
+.overlay-white{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.coming-soon-text{
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 0px;
+  transform: translateY(-50%);
+}
+
+.coming-soon-text h1 h5{
+  width: 100%;
+}
